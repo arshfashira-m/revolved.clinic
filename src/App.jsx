@@ -12,9 +12,8 @@ import ContactSection from "./components/ContentSection";
 import Footer from "./components/Footer";
 
 function App() {
-  
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Navbar />
       <Hero />
       <ShopProducts />
@@ -27,7 +26,7 @@ function App() {
       <FAQSection />
       <ContactSection />
       <Footer />
-    </>
+    </div>
   );
 }
 

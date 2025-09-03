@@ -34,10 +34,28 @@ const cardData = [
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden">
-      {/* Gradient Background */}
+    <section
+      className="relative overflow-hidden 
+      bg-cover bg-center 
+      sm:bg-[#ccdddc]" // light green on tablet & desktop
+      style={{
+        backgroundImage: `url(${face})`,
+      }}
+    >
+      {/* Hide background image  */}
+      <style>
+        {`
+          @media (min-width: 640px) {
+            section[style] {
+              background-image: none !important;
+            }
+          }
+        `}
+      </style>
+
+      {/* Gradient Background only for mobile */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-[#E0F7F6] via-[#F8FFFF] to-[#E0F7F6] opacity-70"
+        className="absolute inset-0 bg-gradient-to-br from-[#E0F7F6] via-[#F8FFFF] to-[#E0F7F6] opacity-70 sm:hidden"
         animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
         transition={{
           duration: 10,
@@ -54,7 +72,7 @@ const Hero = () => {
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col gap-6"
+          className="flex flex-col gap-6 bg-white/70 sm:bg-transparent p-4 sm:p-0 rounded-2xl sm:rounded-none"
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-syne font-bold leading-tight text-gray-900 mt-10 sm:mt-10">
             <span className="text-[#4FA097]">Anti-aging </span> that <br />
@@ -104,17 +122,17 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Image */}
+        {/* Right Image – hidden on small screens */}
         <motion.div
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="flex justify-center lg:justify-end"
+          className="hidden lg:flex justify-center lg:justify-end"
         >
           <img
             src={face}
             alt="Face"
-            className="w-full max-w-[600px] h-auto sm:h-[300px] md:h-[400px] lg:h-[700px] mt-6 object-cover shadow-lg rounded-[30px] sm:rounded-[40px] md:rounded-[50px]"
+            className="w-full max-w-[600px] h-auto md:h-[400px] lg:h-[700px] mt-5 object-cover shadow-lg rounded-[30px] sm:rounded-[40px] md:rounded-[50px]"
           />
         </motion.div>
       </div>
@@ -139,21 +157,6 @@ const Hero = () => {
           transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
           className="whitespace-nowrap text-white text-xs sm:text-sm md:text-base flex gap-10 sm:gap-16 md:gap-24 px-4 sm:px-6"
         >
-          <span className="flex items-center gap-2">
-            <Truck /> Free Express Delivery
-          </span>
-          <span className="flex items-center gap-2">
-            <PackageCheck /> Discreet Packaging
-          </span>
-          <span className="flex items-center gap-2">
-            <User /> Personalized Treatment Plans
-          </span>
-          <span className="flex items-center gap-2">
-            <ThumbsUp /> 100% Online - No Appointments
-          </span>
-          <span className="flex items-center gap-2">
-            <Stethoscope /> Speak to Experts Anytime
-          </span>
           <span className="flex items-center gap-2">
             <Truck /> Free Express Delivery
           </span>
