@@ -53,24 +53,24 @@ const FAQSection = () => {
           custom={0}
           className="flex flex-col items-center text-center"
         >
-          <h2 className="text-2xl md:text-4xl lg:text-4xl font-normal text-[#589089]">
+          <h2 className="text-2xl md:text-4xl lg:text-4xl font-henju font-light l text-[#589089]">
             FAQ
           </h2>
-          <p className="mt-3 text-black text-base md:text-lg font-normal">
+          <p className="mt-3 text-black text-base md:text-lg font-quinn font-normal">
             Still Have Questions? Read Your <br /> FAQs
           </p>
 
           {/* Button */}
-          <button className="mt-6 bg-[#4FA097] text-white px-6 py-3 rounded-full hover:bg-[#3f8a81] flex items-center gap-2 hover:scale-105 transition-transform duration-300">
+          <button className="group mt-6 bg-[#4FA097] text-white px-6 py-3 font-quinn rounded-full hover:bg-[#3f8a81] flex items-center gap-2 hover:scale-105 transition-transform duration-300">
             View all FAQ
-            <span className="p-1 rounded-full bg-white text-[#4FA097]">
+            <span className="p-1 rounded-full bg-white text-[#4FA097] transition-transform duration-300 group-hover:translate-x-2">
               <ArrowRight size={18} />
             </span>
           </button>
         </motion.div>
 
         {/* FAQ Cards */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 font-quinn">
           {faqs.map((faq, i) => (
             <motion.div
               key={i}

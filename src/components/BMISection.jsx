@@ -25,11 +25,11 @@ const BMISection = () => {
           viewport={{ once: true }}
           className="flex flex-col items-center text-center px-2"
         >
-          <h2 className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] font-henju font-normal text-black leading-snug">
+          <h2 className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] font-henju font-light text-black leading-snug">
             Check your <span className="text-[#F2A472]">BMI</span> to Get
             Started
           </h2>
-          <p className="mt-4 text-black text-sm sm:text-base md:text-lg font-normal max-w-2xl">
+          <p className="mt-4 text-black text-sm sm:text-base md:text-base font-quinn font-base max-w-2xl">
             BMI stands for Body Mass Index. It’s a measurement that uses your
             height and weight to estimate if your weight is in a healthy range
             for your height.
@@ -37,7 +37,7 @@ const BMISection = () => {
         </motion.div>
 
         {/* Content Row */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:gap-10">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:gap-10 font-quinn">
           {/* Left Image */}
           <motion.div
             initial={{ x: -80, opacity: 0 }}
@@ -67,7 +67,7 @@ const BMISection = () => {
              hover:scale-105 hover:shadow-lg"
               >
                 {/* Gender Switch */}
-                <div className="flex justify-between items-center bg-[#FFF8F4] p-2 rounded-xl">
+                <div className="flex justify-between items-center font-henju font-light  bg-[#FFF8F4] p-2 rounded-xl">
                   <button
                     onClick={() => setGender("male")}
                     className={`flex-1 py-2 rounded-xl font-medium ${
@@ -80,7 +80,7 @@ const BMISection = () => {
                   </button>
                   <button
                     onClick={() => setGender("female")}
-                    className={`flex-1 py-2 rounded-xl font-medium ${
+                    className={` flex-1 py-2 rounded-xl font-medium ${
                       gender === "female"
                         ? "bg-[#F2A472] text-white"
                         : "text-gray-400 hover:text-[#F2A472]"
@@ -119,9 +119,9 @@ const BMISection = () => {
                 </div>
 
                 {/* CTA */}
-                <button className="mt-2 bg-[#F2A472] text-white w-full py-3 rounded-full flex items-center hover:bg-[#ef945c] justify-center gap-2 font-medium">
+                <button className="group mt-2 bg-[#F2A472] text-white w-full py-3 rounded-full flex items-center justify-center gap-2 font-medium hover:bg-[#ef945c] transition">
                   Calculate your BMI
-                  <span className="p-1 rounded-full bg-white text-[#F2A472]">
+                  <span className="p-1 rounded-full bg-white text-[#F2A472] transition-transform duration-300 group-hover:translate-x-2">
                     <ArrowRight size={18} />
                   </span>
                 </button>
@@ -213,9 +213,9 @@ const BMISection = () => {
                       discuss lifestyle changes with our healthcare provider to
                       improve your overall health.
                     </p>
-                    <button className="mt-4 bg-[#F2A472] text-white px-6 py-3 hover:bg-[#ef945c] rounded-full flex items-center justify-center gap-2 font-medium mx-auto">
+                    <button className="group mt-4 bg-[#F2A472] text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 font-medium mx-auto hover:bg-[#ef945c] transition">
                       Book a Consultation
-                      <span className="p-1 rounded-full bg-white text-[#F2A472]">
+                      <span className="p-1 rounded-full bg-white text-[#F2A472] transition-transform duration-300 group-hover:translate-x-2">
                         <ArrowRight size={18} />
                       </span>
                     </button>

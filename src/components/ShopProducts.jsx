@@ -10,26 +10,101 @@ import hairloss1 from "../assets/hairloss1.png";
 import hairloss2 from "../assets/hairloss2.png";
 import weightloss from "../assets/weightloss.png";
 
-const categories = ["All", "Skincare", "Anti-Aging", "Weight Loss", "Hair Loss", "Immunity"];
+const categories = [
+  "All",
+  "Skincare",
+  "Anti-Aging",
+  "Weight Loss",
+  "Hair Loss",
+  "Immunity",
+];
 
 const products = [
-  { id: 1, tag: "Skincare", title: "Glow Booster", desc: "Clinically-backed formulas for radiant skin.", buttons: true, badge: "Prescription", image: glowBooster },
-  { id: 2, tag: "Skincare", title: "Glow Cream", desc: "Clinically-backed formulas for radiant skin.", price: "$83.80", cart: true, image: glowCream },
-  { id: 3, tag: "Anti-Aging", title: "Glow Booster", desc: "Clinically-backed formulas for radiant skin.", price: "$50.80", oldPrice: "$83.80", cart: true, discount: "30% OFF", image: antiAging },
-  { id: 4, tag: "Immunity", title: "Immunity Shield", desc: "Boosts natural defense with vitamins.", price: "$39.99", cart: true, image: immunity },
-  { id: 5, tag: "Hair Loss", title: "Hair Growth Serum", desc: "Revitalizes scalp and promotes growth.", price: "$50.80", oldPrice: "$83.80", cart: true, discount: "40% OFF", image: hairloss1 },
-  { id: 6, tag: "Hair Loss", title: "Hair Tonic Advanced", desc: "Strengthens roots for healthy hair.", price: "$59.99", cart: true, image: hairloss2 },
-  { id: 7, tag: "Weight Loss", title: "Fat Burner Pro", desc: "Supports metabolism and energy.", price: "$50.80", oldPrice: "$83.80", cart: true, discount: "30% OFF", image: weightloss },
+  {
+    id: 1,
+    tag: "Skincare",
+    title: "Glow Booster",
+    desc: "Clinically-backed formulas for radiant skin.",
+    buttons: true,
+    badge: "Prescription",
+    image: glowBooster,
+  },
+  {
+    id: 2,
+    tag: "Skincare",
+    title: "Glow Cream",
+    desc: "Clinically-backed formulas for radiant skin.",
+    price: "$83.80",
+    cart: true,
+    image: glowCream,
+  },
+  {
+    id: 3,
+    tag: "Anti-Aging",
+    title: "Glow Booster",
+    desc: "Clinically-backed formulas for radiant skin.",
+    price: "$50.80",
+    oldPrice: "$83.80",
+    cart: true,
+    discount: "30% OFF",
+    image: antiAging,
+  },
+  {
+    id: 4,
+    tag: "Immunity",
+    title: "Immunity Shield",
+    desc: "Boosts natural defense with vitamins and minerals.",
+    price: "$39.99",
+    cart: true,
+    image: immunity,
+  },
+  {
+    id: 5,
+    tag: "Hair Loss",
+    title: "Hair Growth Serum",
+    desc: "Revitalizes scalp and promotes growth hair.",
+    price: "$50.80",
+    oldPrice: "$83.80",
+    cart: true,
+    discount: "40% OFF",
+    image: hairloss1,
+  },
+  {
+    id: 6,
+    tag: "Hair Loss",
+    title: "Hair Tonic Advanced",
+    desc: "Strengthens roots for the healthy hair.",
+    price: "$59.99",
+    cart: true,
+    image: hairloss2,
+  },
+  {
+    id: 7,
+    tag: "Weight Loss",
+    title: "Fat Burner Pro",
+    desc: "Supports metabolism and energy for weight loss.",
+    price: "$50.80",
+    oldPrice: "$83.80",
+    cart: true,
+    discount: "30% OFF",
+    image: weightloss,
+  },
 ];
 
 const ShopProducts = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [page, setPage] = useState(0);
 
-  const filteredProducts = activeCategory === "All" ? products : products.filter((p) => p.tag === activeCategory);
+  const filteredProducts =
+    activeCategory === "All"
+      ? products
+      : products.filter((p) => p.tag === activeCategory);
   const itemsPerPage = 4;
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-  const paginatedProducts = filteredProducts.slice(page * itemsPerPage, page * itemsPerPage + itemsPerPage);
+  const paginatedProducts = filteredProducts.slice(
+    page * itemsPerPage,
+    page * itemsPerPage + itemsPerPage
+  );
 
   return (
     <section className="relative py-12 px-6 sm:px-12 lg:px-20 bg-white text-center">
@@ -39,7 +114,7 @@ const ShopProducts = () => {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-4xl md:text-5xl font-henju"
+        className="text-4xl md:text-5xl font-henju font-light"
       >
         Shop <span className="text-orange-400">Products</span>
       </motion.h2>
@@ -48,9 +123,10 @@ const ShopProducts = () => {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
         viewport={{ once: true }}
-        className="mt-2 text-gray-800 max-w-xl mx-auto text-sm md:text-base"
+        className="mt-2 text-gray-800 max-w-xl mx-auto text-sm md:text-base font-quinn"
       >
-        Discover science-backed beauty essentials—curated to enhance your skin, hair, and overall glow.
+        Discover science-backed beauty essentials—curated to enhance your skin,
+        hair, and overall glow.
       </motion.p>
 
       {/* Categories */}
@@ -58,9 +134,16 @@ const ShopProducts = () => {
         {categories.map((cat) => (
           <button
             key={cat}
-            onClick={() => { setActiveCategory(cat); setPage(0); }}
-            className={`px-6 md:px-10 py-3 rounded-full text-sm font-medium transition-all
-              ${activeCategory === cat ? "bg-orange-200 text-orange-800 shadow-inner" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
+            onClick={() => {
+              setActiveCategory(cat);
+              setPage(0);
+            }}
+            className={`px-6 md:px-10 py-3 rounded-full text-sm font-quinn transition-all
+              ${
+                activeCategory === cat
+                  ? "bg-[#FFD0B3] text-orange-800 shadow-inner"
+                  : "bg-gray-100 text-gray-600 hover:bg-orange-100"
+              }`}
           >
             {cat}
           </button>
@@ -74,14 +157,14 @@ const ShopProducts = () => {
           initial={{ x: 80, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 font-quinn justify-items-center"
         >
           <AnimatePresence>
             {paginatedProducts.map((p) => (
               <motion.div
                 key={p.id}
                 whileHover={{ scale: 1.02 }}
-                className="relative bg-gray-100 rounded-[2rem] shadow-lg hover:shadow-xl border border-gray-100 p-6 text-left max-w-[320px] w-full"
+                className="relative bg-gray-100 rounded-[2rem] shadow-lg hover:shadow-xl border hover:border-orange-400 hover:bg-orange-100 border-gray-100 p-6 text-left max-w-[320px] w-full"
               >
                 {/* Discount Ribbon */}
                 {p.discount && (
@@ -101,7 +184,11 @@ const ShopProducts = () => {
 
                 {/* Image */}
                 <div className="flex justify-center mb-4 h-40">
-                  <img src={p.image} alt={p.title} className="h-full object-contain" />
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="h-full object-contain"
+                  />
                 </div>
 
                 {/* Info */}
@@ -115,11 +202,15 @@ const ShopProducts = () => {
                 {p.price && (
                   <div className="flex items-center justify-between mt-4">
                     <div>
-                      {p.oldPrice && <p className="text-xs text-gray-400 line-through">{p.oldPrice}</p>}
+                      {p.oldPrice && (
+                        <p className="text-xs text-orange-400 line-through">
+                          {p.oldPrice}
+                        </p>
+                      )}
                       <p className="text-lg font-semibold">{p.price}</p>
                     </div>
                     {p.cart && (
-                      <button className="p-2 bg-white rounded-full text-orange-300 ">
+                      <button className="p-2 bg-white rounded-full text-orange-300 hover:bg-orange-300 hover:text-white ">
                         <Handbag size={16} />
                       </button>
                     )}
@@ -128,14 +219,15 @@ const ShopProducts = () => {
 
                 {/* Learn More + Get Started */}
                 {p.buttons && (
-                  <div className="flex gap-3 justify-center mt-5">
-                    <button className="px-4 py-2 rounded-full border border-orange-400 text-orange-400 text-sm hover:bg-orange-50">
+                  <div className="flex gap-3 font-quinn  justify-center mt-5">
+                    <button className="px-4 py-2 rounded-full border border-[#F2A472] text-[#F2A472] text-sm hover:bg-orange-50 transition-all duration-300">
                       Learn More
                     </button>
-                    <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-orange-300 text-white text-sm hover:bg-orange-400">
+
+                    <button className="group flex items-center gap-2 px-4 py-2 rounded-full bg-[#F2A472] text-white text-xs hover:bg-orange-400 transition-all duration-300">
                       Get Started
-                      <span className="bg-white rounded-full p-1 flex items-center justify-center">
-                        <ArrowRight size={14} className="text-orange-400" />
+                      <span className="bg-white rounded-full p-1 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-2">
+                        <ArrowRight size={14} className="text-[#F2A472]" />
                       </span>
                     </button>
                   </div>
@@ -149,7 +241,7 @@ const ShopProducts = () => {
         {page > 0 && (
           <button
             onClick={() => setPage(page - 1)}
-            className="hidden md:flex p-3 rounded-full border shadow-md hover:bg-gray-100 absolute left-4 top-1/2 -translate-y-1/2"
+            className="hidden md:flex p-3 mt-20 rounded-full border shadow-md hover:bg-gray-100 absolute left-4 top-1/2 -translate-y-1/2"
           >
             <ArrowLeft />
           </button>
@@ -157,7 +249,7 @@ const ShopProducts = () => {
         {page < totalPages - 1 && (
           <button
             onClick={() => setPage(page + 1)}
-            className="hidden md:flex p-3 rounded-full border shadow-md hover:bg-gray-100 absolute right-4 top-1/2 -translate-y-1/2"
+            className="hidden md:flex p-3 mt-20 rounded-full border shadow-md hover:bg-gray-100 absolute right-4 top-1/2 -translate-y-1/2"
           >
             <ArrowRight />
           </button>
@@ -166,9 +258,9 @@ const ShopProducts = () => {
 
       {/* View All */}
       <div className="mt-10">
-        <button className="flex items-center gap-2 px-6 py-2 rounded-full border border-orange-300 text-orange-500 text-sm hover:bg-orange-50 mx-auto">
+        <button className="group flex items-center gap-2 px-6 py-2 rounded-full border border-orange-300 text-orange-500 text-sm hover:bg-orange-50 transition-all duration-300 mx-auto">
           View all
-          <span className="border border-orange-400 rounded-full p-1 flex items-center justify-center">
+          <span className="border border-orange-400 rounded-full p-1 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-2">
             <ArrowRight size={14} className="text-orange-400" />
           </span>
         </button>

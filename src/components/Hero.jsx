@@ -35,14 +35,12 @@ const cardData = [
 const Hero = () => {
   return (
     <section
-      className="relative overflow-hidden 
-      bg-cover bg-center 
-      sm:bg-[#ccdddc]" // light green on tablet & desktop
+      className="relative overflow-hidden bg-cover bg-center sm:bg-white min-h-screen pt-[4rem]"
       style={{
         backgroundImage: `url(${face})`,
       }}
     >
-      {/* Hide background image  */}
+      {/* Hide background image on larger screens */}
       <style>
         {`
           @media (min-width: 640px) {
@@ -55,7 +53,7 @@ const Hero = () => {
 
       {/* Gradient Background only for mobile */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-[#E0F7F6] via-[#F8FFFF] to-[#E0F7F6] opacity-70 sm:hidden"
+        className="absolute inset-0 bg-gradient-to-br from-[#E0F7F6] via-[#F8FFFF] to-[#E0F7F6] opacity-60 sm:hidden"
         animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
         transition={{
           duration: 10,
@@ -66,7 +64,8 @@ const Hero = () => {
         style={{ backgroundSize: "200% 200%" }}
       />
 
-      <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-10 sm:py-14 md:py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-20 items-center">
+      {/* Main Content */}
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-10 sm:py-14 md:py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-20 items-center">
         {/* Left Content */}
         <motion.div
           initial={{ y: 80, opacity: 0 }}
@@ -74,17 +73,17 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col gap-6 bg-white/70 sm:bg-transparent p-4 sm:p-0 rounded-2xl sm:rounded-none"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-syne font-bold leading-tight text-gray-900 mt-10 sm:mt-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl  font-henju font-semibold leading-tight text-gray-900 ">
             <span className="text-[#4FA097]">Anti-aging </span> that <br />
             Works for you.
           </h1>
-          <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-md">
+          <p className="text-gray-600 font-henju font-light  text-sm sm:text-base md:text-lg max-w-md">
             We believe everyone deserves to glow. Let us help you with our top
             quality technology and facilities.
           </p>
-          <button className="flex items-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-[#4FA097] text-white hover:bg-teal-800 transition w-fit shadow-md text-sm sm:text-base">
+          <button className="group px-5 sm:px-6 py-3 font-quinn bg-[#4FA097] text-white w-fit text-sm sm:text-base rounded-full flex items-center gap-2 transition-all duration-300 hover:bg-[#3c7d75]">
             Get Started
-            <span className="bg-white rounded-full p-1 flex items-center justify-center">
+            <span className="bg-white rounded-full p-1 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-2">
               <ArrowRight size={16} className="text-[#4FA097]" />
             </span>
           </button>
@@ -96,7 +95,7 @@ const Hero = () => {
                 key={i}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white rounded-[20px] shadow-md p-3 sm:p-4 flex flex-col justify-between hover:shadow-xl transition w-full min-h-[200px] sm:min-h-[220px] md:min-h-[240px]"
+                className="bg-white hover:text-[#4FA097] rounded-[20px] shadow-md p-3 sm:p-4 flex flex-col justify-between shadow-xl transition w-full min-h-[200px] sm:min-h-[220px] md:min-h-[240px]"
               >
                 <div className="flex flex-col gap-3">
                   <img
@@ -104,10 +103,12 @@ const Hero = () => {
                     alt={card.title}
                     className="w-12 sm:w-14 h-12 sm:h-14 object-contain"
                   />
-                  <h3 className="text-base sm:text-lg font-medium font-henju">
+                  <h3 className="text-base sm:text-lg mt-2 font-medium font-quinn">
                     {card.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600">{card.desc}</p>
+                  <p className="text-xs sm:text-xs font-quinn font-light text-gray-400">
+                    {card.desc}
+                  </p>
                 </div>
                 <div className="flex justify-end mt-3">
                   <motion.div
@@ -122,24 +123,35 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Image – hidden on small screens */}
+        {/* Right Image with overlapping background container */}
         <motion.div
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="hidden lg:flex justify-center lg:justify-end"
+          className="hidden lg:flex justify-center lg:justify-end relative"
         >
+          {/* Background container */}
+          <div
+            className="absolute bottom-0  right-0 rounded-[50px] -z-10"
+            style={{
+              backgroundColor: "#85B5A51A ", 
+              width: "140%", 
+              height: "108%",
+            }}
+          ></div>
+
+          {/* Foreground image */}
           <img
             src={face}
             alt="Face"
-            className="w-full max-w-[600px] h-auto md:h-[400px] lg:h-[700px] mt-5 object-cover shadow-lg rounded-[30px] sm:rounded-[40px] md:rounded-[50px]"
+            className="w-full max-w-[600px] h-auto lg:h-[700px] object-cover shadow-lg rounded-[40px]"
           />
         </motion.div>
       </div>
 
       {/* Floating Chat Button */}
       <motion.button
-        className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 bg-white p-2 sm:p-3 rounded-full shadow-xl transition z-50"
+        className="fixed bottom-4 sm:bottom-6 mb-10 right-4 sm:right-6 bg-white p-2 sm:p-3 rounded-full shadow-xl transition z-50"
         animate={{ y: [0, -10, 0] }}
         transition={{
           duration: 2,
@@ -147,16 +159,31 @@ const Hero = () => {
           ease: "easeInOut",
         }}
       >
-        <MessageSquare size={30} className="fill-[#4FA097] text-[#4FA097]" />
+        <MessageSquare size={30} className="fill-[#0C7885]  text-[#0C7885]" />
       </motion.button>
 
       {/* Bottom Ticker */}
-      <div className="mt-10 sm:mt-12 md:mt-16 bg-[#0C7885] py-2 sm:py-3 md:py-4 overflow-hidden relative">
+      <div className="mt-10 sm:mt-12 md:mt-24 bg-[#0C7885] py-2 sm:py-3 md:py-4 overflow-hidden relative">
         <motion.div
           animate={{ x: ["100%", "-100%"] }}
           transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-          className="whitespace-nowrap text-white text-xs sm:text-sm md:text-base flex gap-10 sm:gap-16 md:gap-24 px-4 sm:px-6"
+          className="whitespace-nowrap font-quinn text-white text-xs sm:text-sm md:text-sm flex gap-10 sm:gap-16 md:gap-24 px-4 sm:px-6"
         >
+          <span className="flex items-center gap-2">
+            <Truck /> Free Express Delivery
+          </span>
+          <span className="flex items-center gap-2">
+            <PackageCheck /> Discreet Packaging
+          </span>
+          <span className="flex items-center gap-2">
+            <User /> Personalized Treatment Plans
+          </span>
+          <span className="flex items-center gap-2">
+            <ThumbsUp /> 100% Online - No Appointments
+          </span>
+          <span className="flex items-center gap-2">
+            <Stethoscope /> Speak to Experts Anytime
+          </span>
           <span className="flex items-center gap-2">
             <Truck /> Free Express Delivery
           </span>

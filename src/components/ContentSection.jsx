@@ -25,17 +25,17 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="bg-white rounded-3xl shadow-md flex-1 p-6 sm:p-8 md:p-10"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal font-henju text-black mb-2">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-henju font-light  text-black mb-2">
             <span className="text-[#4FA097]">Contact</span> us.
           </h2>
-          <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-6 leading-relaxed">
+          <p className="text-gray-700 text-sm sm:text-base font-quinn md:text-base mb-6 leading-relaxed">
             Have questions or feedback? We’re here to help.
             <br className="hidden sm:block" />
             Send us a message and we’ll respond within 24 hours.
           </p>
 
           {/* Form */}
-          <form className="flex flex-col gap-5">
+          <form className="flex flex-col gap-5 font-quinn">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 id="firstName"
@@ -86,9 +86,9 @@ const ContactSection = () => {
             </div>
 
             {/* Button */}
-            <button className="mt-2 bg-[#4FA097] text-white w-full py-3 rounded-full flex items-center justify-center gap-2 font-medium hover:bg-[#439285] transition-all">
+            <button className="group mt-2 bg-[#4FA097] text-white w-full py-3 rounded-full flex items-center justify-center gap-2 font-medium hover:bg-[#439285] transition-all">
               Send
-              <span className="p-1 rounded-full bg-white text-[#4FA097]">
+              <span className="p-1 rounded-full bg-white text-[#4FA097] transition-transform duration-300 group-hover:translate-x-2">
                 <ArrowRight size={18} />
               </span>
             </button>
@@ -101,7 +101,7 @@ const ContactSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex-1 flex flex-col gap-6 w-full"
+          className="flex-1 flex flex-col gap-6 w-full font-quinn"
         >
           {/* Image */}
           <div className="rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] w-full max-h-[400px]">

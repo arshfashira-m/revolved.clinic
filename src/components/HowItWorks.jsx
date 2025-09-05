@@ -14,6 +14,7 @@ const steps = [
     img: checkList,
     color: "text-[#F2A472]",
     highlightColor: "text-[#F2A472]",
+    borderColor: "border-[#F2A472]",
   },
   {
     id: "02",
@@ -21,8 +22,9 @@ const steps = [
     highlight: "Consultation",
     desc: "A licensed provider reviews your info and issues a prescription if appropriate.",
     img: jobInterview,
-    color: "text-[#4FA097]",
-    highlightColor: "text-[#4FA097]",
+    color: "text-[#85B5A5]",
+    highlightColor: "text-[#85B5A5]",
+    borderColor: "border-[#85B5A5]",
   },
   {
     id: "03",
@@ -32,6 +34,7 @@ const steps = [
     img: box,
     color: "text-[#0C7885]",
     highlightColor: "text-[#0C7885]",
+    borderColor: "border-[#0C7885]",
   },
 ];
 
@@ -45,45 +48,52 @@ const HowItWorks = () => {
         transition={{ duration: 0.8 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl sm:text-5xl font-henju font-normal text-gray-900">
-          How it <span className="text-[#4FA097]">Works?</span>
+        <h2 className="text-4xl sm:text-5xl font-henju font-light  text-gray-900">
+          How it <span className="text-[#85B5A5]">Works?</span>
         </h2>
-        <p className="mt-2 text-black text-sm sm:text-base">
-          We’ll be with you every step of the way on your journey to a better you. <br />
+        <p className="mt-2 text-black font-quinn text-sm sm:text-sm">
+          We’ll be with you every step of the way on your journey to a better
+          you. <br />
           Assessment. Consultation. Delivery
         </p>
       </motion.div>
 
       {/* Steps */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
         {steps.map((step, index) => (
           <motion.div
             key={step.id}
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: index * 0.3 }}
-            className="relative bg-gray-50 rounded-2xl p-8 flex flex-col items-center text-center shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-xl"
+            whileHover={{ scale: 1.05 }}
+            className={`relative bg-[#FAFAFA] rounded-3xl p-8 font-quinn flex flex-col items-center text-center  
+    border-2  transition duration-300 hover:shadow-xl hover:${step.borderColor}`}
           >
             {/* Step number*/}
             <span
-              className={`${step.color} absolute top-4 right-6 font-medium text-3xl`}
+              className={`${step.color} absolute top-4 right-6 font-henju font-light text-3xl`}
             >
               {step.id}
             </span>
 
-            {/* Icon */}
-            <img
+            {/* Icon with shake effect */}
+            <motion.img
               src={step.img}
               alt={step.title}
               className="w-14 h-20 mb-6 object-contain"
+              whileHover={{
+                rotate: [0, -10, 10, -10, 10, 0], // shake animation
+              }}
+              transition={{ duration: 0.6 }}
             />
 
             {/* Title */}
-            <h3 className="text-2xl font-normal font-henju text-gray-900 leading-snug">
+            <h3 className="text-2xl font-henju font-light  text-gray-900 leading-snug">
               {step.title}
             </h3>
             <h3
-              className={`text-2xl font-normal font-henju leading-snug ${step.highlightColor}`}
+              className={`text-2xl  font-henju font-light leading-snug ${step.highlightColor}`}
             >
               {step.highlight}
             </h3>

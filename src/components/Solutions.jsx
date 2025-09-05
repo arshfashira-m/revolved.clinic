@@ -18,10 +18,10 @@ const Solutions = () => {
             initial={{ y: 60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-henju font-normal"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-henju font-light "
           >
             Solutions{" "}
-            <span className="text-[#0C7885] font-normal font-henju">
+            <span className="text-[#0C7885] font-henju font-light ">
               Just for You
             </span>
           </motion.h2>
@@ -29,31 +29,32 @@ const Solutions = () => {
             initial={{ y: 60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-3 text-xs sm:text-sm md:text-base lg:text-lg text-black max-w-2xl mx-auto"
+            className="mt-3 text-xs sm:text-sm md:text-sm font-quinn lg:text-lg text-black max-w-2xl mx-auto"
           >
             Offer safe, high-quality, evidence-based treatment and care.
           </motion.p>
         </div>
 
         {/* Top Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-8 sm:mb-12 lg:mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-8 font-quinn sm:mb-12 lg:mb-16">
           {/* Card 1 */}
           <motion.div
-            className="bg-[#F5FCFF] rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col items-center 
-                       text-center lg:flex-row lg:text-left lg:items-center lg:justify-between 
-                       transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+            className="bg-[#F5FCFF] rounded-3xl p-6 sm:p-8 
+             flex flex-col items-center text-center 
+             lg:flex-row lg:text-center lg:items-center lg:justify-between 
+             transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
           >
-            <div className="flex-1 text-center lg:text-left">
-              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal font-henju mb-4 leading-snug">
+            <div className="flex-1 text-center lg:text-center">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-henju font-light  mb-4 leading-snug">
                 Clinically{" "}
                 <span className="text-[#0C7885] font-normal">
                   Tested and <br /> Proven
                 </span>{" "}
                 Ingredients
               </h3>
-              <button className="mx-auto lg:mx-0 bg-[#0C7885] text-white px-4 lg:px-6 py-2 lg:py-3 rounded-full flex items-center gap-2 text-sm lg:text-base">
+              <button className="group bg-[#0C7885] text-white px-4 lg:px-4 py-2 lg:py-3 rounded-full flex items-center gap-2 text-xs lg:text-base hover:bg-[#09606a] transition-all duration-300">
                 Consult Now
-                <span className="bg-white text-[#0C7885] w-6 h-6 lg:w-7 lg:h-7 flex items-center justify-center rounded-full">
+                <span className="bg-white text-[#0C7885] w-6 h-6 lg:w-7 lg:h-7 flex items-center justify-center rounded-full transition-transform duration-300 group-hover:translate-x-2">
                   <ArrowRight size={14} />
                 </span>
               </button>
@@ -61,26 +62,27 @@ const Solutions = () => {
             <img
               src={bluetablet}
               alt="Blue Tablet"
-              className="mt-6 lg:mt-0 lg:ml-6 w-44 sm:w-52 md:w-64 lg:w-72 xl:w-80 object-contain"
+              className="mt-6 lg:mt-0 lg:ml-10 w-36 sm:w-44 md:w-52 lg:w-56 object-contain"
             />
           </motion.div>
 
           {/* Card 2 */}
           <motion.div
-            className="bg-[#F5FCFF] rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col items-center 
-                       text-center lg:flex-row lg:text-left lg:items-center lg:justify-between 
-                       transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+            className="bg-[#F5FCFF] rounded-3xl p-6 sm:p-8 
+             flex flex-col items-center text-center 
+             lg:flex-row lg:text-center lg:items-center lg:justify-between 
+             transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
           >
-            <div className="flex-1 text-center lg:text-left">
-              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-henju font-normal mb-4 leading-snug">
+            <div className="flex-1 text-center lg:text-center">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-henju font-light  mb-4 leading-snug">
                 Prescribed by <br />
                 <span className="text-[#0C7885] font-normal">
                   Licensed Providers
                 </span>
               </h3>
-              <button className="mx-auto lg:mx-0 bg-[#0C7885] text-white px-4 lg:px-6 py-2 lg:py-3 rounded-full flex items-center gap-2 text-sm lg:text-base">
+              <button className="group bg-[#0C7885] text-white px-4 lg:px-4 py-2 lg:py-3 rounded-full flex items-center gap-2 text-xs lg:text-base hover:bg-[#09606a] transition-all duration-300">
                 Consult Now
-                <span className="bg-white text-[#0C7885] w-6 h-6 lg:w-7 lg:h-7 flex items-center justify-center rounded-full">
+                <span className="bg-white text-[#0C7885] w-6 h-6 lg:w-7 lg:h-7 flex items-center justify-center rounded-full transition-transform duration-300 group-hover:translate-x-2">
                   <ArrowRight size={14} />
                 </span>
               </button>
@@ -88,7 +90,7 @@ const Solutions = () => {
             <img
               src={doctor}
               alt="Doctor"
-              className="mt-6 lg:mt-0 lg:ml-6 w-56 sm:w-64 md:w-80 lg:w-96 object-contain"
+              className="mt-6 lg:mt-0 lg:ml-10 w-44 sm:w-56 md:w-64 lg:w-72 object-contain"
             />
           </motion.div>
         </div>
@@ -123,17 +125,17 @@ const Solutions = () => {
           </motion.div>
 
           {/* Pharmacies */}
-          <motion.div className="bg-[#F5FCFF] rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl mt-20 font-henju font-normal mb-4 leading-snug">
+          <motion.div className="bg-[#F5FCFF] rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col font-quinn items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+            <h3 className="text-lg sm:text-xl md:text-2xl mt-10 sm:mt-16 lg:mt-20 font-henju font-light  mb-4 leading-snug">
               Safe,{" "}
               <span className="text-[#0C7885] font-normal">
                 Regulated <br />
               </span>
               Pharmacies
             </h3>
-            <button className="bg-[#0C7885] text-white px-4 lg:px-6 py-2 lg:py-3 rounded-full flex items-center gap-2 text-sm lg:text-base">
+            <button className="group bg-[#0C7885] text-white px-4 lg:px-4 py-2 lg:py-3 rounded-full flex items-center gap-2 text-xs lg:text-base hover:bg-[#09606a] transition-all duration-300">
               Consult Now
-              <span className="bg-white text-[#0C7885] w-6 h-6 lg:w-7 lg:h-7 flex items-center justify-center rounded-full">
+              <span className="bg-white text-[#0C7885] w-6 h-6 lg:w-7 lg:h-7 flex items-center justify-center rounded-full transition-transform duration-300 group-hover:translate-x-2">
                 <ArrowRight size={14} />
               </span>
             </button>

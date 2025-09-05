@@ -9,9 +9,15 @@ export default {
       fontFamily: {
       henju: ['Henju', 'sans-serif'],
       quinn: ['Quinn Rounded', 'sans-serif'],
-      syne: ['Syne', 'sans-serif'],
+      quinn: ["Quinn Rounded", "sans-serif"],
+
     }
     },
   },
+  safelist: [
+  'hover:border-[#F2A472]',
+  'hover:border-[#85B5A5]',
+  'hover:border-[#0C7885]',
+],
   plugins: [],
 }
